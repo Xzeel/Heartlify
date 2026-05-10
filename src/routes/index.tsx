@@ -115,6 +115,19 @@ function LovinityPage() {
                 />
               </div>
 
+              <label className="flex items-center justify-between gap-3 rounded-2xl border border-pink-200 bg-pink-50/60 px-4 py-3 cursor-pointer select-none">
+                <span className="text-sm font-medium text-rose-900">
+                  🤫 Mode Rahasia
+                  <span className="block text-xs font-normal text-rose-700/70">Sembunyikan hasil sampai kamu siap</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={secret}
+                  onChange={(e) => setSecret(e.target.checked)}
+                  className="h-5 w-5 accent-pink-500"
+                />
+              </label>
+
               <button
                 type="submit"
                 className="w-full rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-pink-300/50 transition-all hover:scale-105 hover:from-rose-500 hover:to-pink-500 hover:shadow-xl active:scale-100"
@@ -122,6 +135,27 @@ function LovinityPage() {
                 Hitung Cinta! 💘
               </button>
             </form>
+
+            {pending && !result && (
+              <div className="mt-8 text-center animate-fade-in-up">
+                <p className="text-sm font-medium text-pink-600/80">{pending.names}</p>
+                <div className="my-6 flex justify-center">
+                  <div className={`relative flex h-32 w-32 items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-rose-500 shadow-2xl shadow-pink-300/60 ${revealing ? "animate-pulse-soft" : ""}`}>
+                    <span className="text-6xl">{revealing ? "💗" : "🎁"}</span>
+                  </div>
+                </div>
+                <p className="mb-4 text-sm text-rose-700/80">
+                  {revealing ? "Membuka hasil..." : "Hasil tersembunyi. Siap untuk kejutan?"}
+                </p>
+                <button
+                  onClick={reveal}
+                  disabled={revealing}
+                  className="rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-pink-300/50 transition-all hover:scale-105 disabled:opacity-60"
+                >
+                  {revealing ? "✨ ✨ ✨" : "Buka Kejutan! 🎉"}
+                </button>
+              </div>
+            )}
 
             {result && (
               <LoveResult key={result.key} percent={result.p} names={result.names} />

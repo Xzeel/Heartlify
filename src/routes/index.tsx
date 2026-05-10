@@ -163,7 +163,7 @@ function LovinityPage() {
           </section>
         </main>
 
-        <footer className="mt-8 text-center text-sm text-rose-900/60">
+        <footer className="mt-8 text-center text-sm text-white/80">
           © {year} Lovinity. Built with 💖 by XzeelArcadia
         </footer>
       </div>

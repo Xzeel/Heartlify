@@ -74,10 +74,10 @@ function LovinityPage() {
       <LoveBackground />
       <div className="relative flex min-h-screen flex-col items-center justify-between px-4 py-12 font-lexend">
         <header className="mt-6 text-center animate-fade-in-up">
-          <h1 className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl">
+          <h1 className="animate-gradient-text text-5xl font-bold tracking-tight sm:text-6xl">
             Lovinity
           </h1>
-          <p className="mt-3 text-xl font-light text-rose-900/80">
+          <p className="mt-3 text-xl font-light text-white/90 drop-shadow">
             Buktikan Kecocokan Cinta Kalian
           </p>
         </header>

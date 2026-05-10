@@ -21,6 +21,9 @@ function calcLove(a: string, b: string) {
 function LovinityPage() {
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
+  const [secret, setSecret] = useState(false);
+  const [pending, setPending] = useState<{ p: number; names: string } | null>(null);
+  const [revealing, setRevealing] = useState(false);
   const [result, setResult] = useState<{ p: number; names: string; key: number } | null>(
     null,
   );
@@ -43,11 +46,27 @@ function LovinityPage() {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!name1.trim() || !name2.trim()) return;
-    setResult({
+    const data = {
       p: calcLove(name1, name2),
       names: `${name1.trim()}  ❤  ${name2.trim()}`,
-      key: Date.now(),
-    });
+    };
+    if (secret) {
+      setResult(null);
+      setPending(data);
+    } else {
+      setPending(null);
+      setResult({ ...data, key: Date.now() });
+    }
+  };
+
+  const reveal = () => {
+    if (!pending) return;
+    setRevealing(true);
+    setTimeout(() => {
+      setResult({ ...pending, key: Date.now() });
+      setPending(null);
+      setRevealing(false);
+    }, 700);
   };
 
   return (
@@ -55,10 +74,10 @@ function LovinityPage() {
       <LoveBackground />
       <div className="relative flex min-h-screen flex-col items-center justify-between px-4 py-12 font-lexend">
         <header className="mt-6 text-center animate-fade-in-up">
-          <h1 className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl">
+          <h1 className="animate-gradient-text text-5xl font-bold tracking-tight sm:text-6xl">
             Lovinity
           </h1>
-          <p className="mt-3 text-xl font-light text-rose-900/80">
+          <p className="mt-3 text-xl font-light text-white/90 drop-shadow">
             Buktikan Kecocokan Cinta Kalian
           </p>
         </header>
@@ -96,6 +115,19 @@ function LovinityPage() {
                 />
               </div>
 
+              <label className="flex items-center justify-between gap-3 rounded-2xl border border-pink-200 bg-pink-50/60 px-4 py-3 cursor-pointer select-none">
+                <span className="text-sm font-medium text-rose-900">
+                  🤫 Mode Rahasia
+                  <span className="block text-xs font-normal text-rose-700/70">Sembunyikan hasil sampai kamu siap</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={secret}
+                  onChange={(e) => setSecret(e.target.checked)}
+                  className="h-5 w-5 accent-pink-500"
+                />
+              </label>
+
               <button
                 type="submit"
                 className="w-full rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-pink-300/50 transition-all hover:scale-105 hover:from-rose-500 hover:to-pink-500 hover:shadow-xl active:scale-100"
@@ -104,13 +136,34 @@ function LovinityPage() {
               </button>
             </form>
 
+            {pending && !result && (
+              <div className="mt-8 text-center animate-fade-in-up">
+                <p className="text-sm font-medium text-pink-600/80">{pending.names}</p>
+                <div className="my-6 flex justify-center">
+                  <div className={`relative flex h-32 w-32 items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-rose-500 shadow-2xl shadow-pink-300/60 ${revealing ? "animate-pulse-soft" : ""}`}>
+                    <span className="text-6xl">{revealing ? "💗" : "🎁"}</span>
+                  </div>
+                </div>
+                <p className="mb-4 text-sm text-rose-700/80">
+                  {revealing ? "Membuka hasil..." : "Hasil tersembunyi. Siap untuk kejutan?"}
+                </p>
+                <button
+                  onClick={reveal}
+                  disabled={revealing}
+                  className="rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-pink-300/50 transition-all hover:scale-105 disabled:opacity-60"
+                >
+                  {revealing ? "✨ ✨ ✨" : "Buka Kejutan! 🎉"}
+                </button>
+              </div>
+            )}
+
             {result && (
               <LoveResult key={result.key} percent={result.p} names={result.names} />
             )}
           </section>
         </main>
 
-        <footer className="mt-8 text-center text-sm text-rose-900/60">
+        <footer className="mt-8 text-center text-sm text-white/80">
           © {year} Lovinity. Built with 💖 by XzeelArcadia
         </footer>
       </div>

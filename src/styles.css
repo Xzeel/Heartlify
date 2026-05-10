@@ -166,18 +166,6 @@
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-.animate-gradient-text {
-  background: linear-gradient(90deg, #ec4899, #f43f5e, #db2777, #fb7185, #ec4899);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradient-shift 6s ease infinite;
-}
 
 .heart-particle {
   position: absolute;

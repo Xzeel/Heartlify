@@ -44,7 +44,7 @@ export function LoveResult({ percent, names }: { percent: number; names: string 
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mt-8 text-center"
       >
-        <p className="text-sm font-medium text-pink-200/90">{names}</p>
+        <p className="text-sm font-medium text-pink-600/80">{names}</p>
         <div className="my-4 flex items-baseline justify-center gap-1 animate-pulse-soft">
           <span
             className={`bg-gradient-to-r ${label.color} bg-clip-text text-8xl font-black tracking-tight text-transparent sm:text-9xl`}
@@ -58,7 +58,7 @@ export function LoveResult({ percent, names }: { percent: number; names: string 
         >
           {label.title}
         </h3>
-        <p className="mt-2 text-sm text-pink-200/80">{message}</p>
+        <p className="mt-2 text-sm text-rose-700/80">{message}</p>
       </motion.div>
     </AnimatePresence>
   );

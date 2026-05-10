@@ -58,7 +58,7 @@ export function LoveResult({ percent, names }: { percent: number; names: string 
         >
           {label.title}
         </h3>
-        <p className="mt-2 text-sm text-rose-700/80">{message}</p>
+        <p className="mt-2 text-sm text-pink-200/80">{message}</p>
       </motion.div>
     </AnimatePresence>
   );

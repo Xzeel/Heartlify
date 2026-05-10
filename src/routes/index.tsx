@@ -21,6 +21,9 @@ function calcLove(a: string, b: string) {
 function LovinityPage() {
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
+  const [secret, setSecret] = useState(false);
+  const [pending, setPending] = useState<{ p: number; names: string } | null>(null);
+  const [revealing, setRevealing] = useState(false);
   const [result, setResult] = useState<{ p: number; names: string; key: number } | null>(
     null,
   );
@@ -43,11 +46,27 @@ function LovinityPage() {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!name1.trim() || !name2.trim()) return;
-    setResult({
+    const data = {
       p: calcLove(name1, name2),
       names: `${name1.trim()}  ❤  ${name2.trim()}`,
-      key: Date.now(),
-    });
+    };
+    if (secret) {
+      setResult(null);
+      setPending(data);
+    } else {
+      setPending(null);
+      setResult({ ...data, key: Date.now() });
+    }
+  };
+
+  const reveal = () => {
+    if (!pending) return;
+    setRevealing(true);
+    setTimeout(() => {
+      setResult({ ...pending, key: Date.now() });
+      setPending(null);
+      setRevealing(false);
+    }, 700);
   };
 
   return (

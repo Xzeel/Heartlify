@@ -84,41 +84,41 @@ function LovinityPage() {
 
         <main className="my-10 w-full">
           <section
-            className="mx-auto max-w-md rounded-3xl border border-white/60 bg-white/80 p-8 shadow-2xl shadow-pink-200/50 backdrop-blur-xl sm:max-w-lg animate-fade-in-up"
+            className="mx-auto max-w-md rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-pink-900/40 backdrop-blur-xl sm:max-w-lg animate-fade-in-up"
             style={{ animationDelay: "0.15s" }}
           >
-            <p className="text-center text-base text-rose-800/80">
+            <p className="text-center text-base text-pink-100/80">
               Masukkan nama kalian dan lihat magic-nya! 💖
             </p>
 
             <form onSubmit={onSubmit} className="mt-6 space-y-4">
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-rose-900">
+                <label className="mb-1.5 block text-sm font-medium text-pink-100">
                   Nama Anda
                 </label>
                 <input
                   value={name1}
                   onChange={(e) => setName1(e.target.value)}
                   placeholder="cth. Aurora"
-                  className="w-full rounded-2xl border border-pink-200 bg-white/70 px-4 py-3 text-rose-900 placeholder:italic placeholder:text-pink-300 transition focus:border-pink-400 focus:outline-none focus:ring-4 focus:ring-pink-400/40"
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-pink-50 placeholder:italic placeholder:text-pink-300/50 transition focus:border-pink-400 focus:outline-none focus:ring-4 focus:ring-pink-400/30"
                 />
               </div>
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-rose-900">
+                <label className="mb-1.5 block text-sm font-medium text-pink-100">
                   Nama Dia
                 </label>
                 <input
                   value={name2}
                   onChange={(e) => setName2(e.target.value)}
                   placeholder="cth. Reyhan"
-                  className="w-full rounded-2xl border border-pink-200 bg-white/70 px-4 py-3 text-rose-900 placeholder:italic placeholder:text-pink-300 transition focus:border-pink-400 focus:outline-none focus:ring-4 focus:ring-pink-400/40"
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-pink-50 placeholder:italic placeholder:text-pink-300/50 transition focus:border-pink-400 focus:outline-none focus:ring-4 focus:ring-pink-400/30"
                 />
               </div>
 
-              <label className="flex items-center justify-between gap-3 rounded-2xl border border-pink-200 bg-pink-50/60 px-4 py-3 cursor-pointer select-none">
-                <span className="text-sm font-medium text-rose-900">
+              <label className="flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-pink-500/10 px-4 py-3 cursor-pointer select-none">
+                <span className="text-sm font-medium text-pink-100">
                   🤫 Mode Rahasia
-                  <span className="block text-xs font-normal text-rose-700/70">Sembunyikan hasil sampai kamu siap</span>
+                  <span className="block text-xs font-normal text-pink-200/60">Sembunyikan hasil sampai kamu siap</span>
                 </span>
                 <input
                   type="checkbox"
@@ -130,7 +130,7 @@ function LovinityPage() {
 
               <button
                 type="submit"
-                className="w-full rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-pink-300/50 transition-all hover:scale-105 hover:from-rose-500 hover:to-pink-500 hover:shadow-xl active:scale-100"
+                className="w-full rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-pink-500/40 transition-all hover:scale-105 hover:from-rose-500 hover:to-pink-500 hover:shadow-xl active:scale-100"
               >
                 Hitung Cinta! 💘
               </button>
@@ -138,19 +138,19 @@ function LovinityPage() {
 
             {pending && !result && (
               <div className="mt-8 text-center animate-fade-in-up">
-                <p className="text-sm font-medium text-pink-600/80">{pending.names}</p>
+                <p className="text-sm font-medium text-pink-200/90">{pending.names}</p>
                 <div className="my-6 flex justify-center">
-                  <div className={`relative flex h-32 w-32 items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-rose-500 shadow-2xl shadow-pink-300/60 ${revealing ? "animate-pulse-soft" : ""}`}>
+                  <div className={`relative flex h-32 w-32 items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-rose-500 shadow-2xl shadow-pink-500/50 ${revealing ? "animate-pulse-soft" : ""}`}>
                     <span className="text-6xl">{revealing ? "💗" : "🎁"}</span>
                   </div>
                 </div>
-                <p className="mb-4 text-sm text-rose-700/80">
+                <p className="mb-4 text-sm text-pink-200/70">
                   {revealing ? "Membuka hasil..." : "Hasil tersembunyi. Siap untuk kejutan?"}
                 </p>
                 <button
                   onClick={reveal}
                   disabled={revealing}
-                  className="rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-pink-300/50 transition-all hover:scale-105 disabled:opacity-60"
+                  className="rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-pink-500/40 transition-all hover:scale-105 disabled:opacity-60"
                 >
                   {revealing ? "✨ ✨ ✨" : "Buka Kejutan! 🎉"}
                 </button>
@@ -163,7 +163,7 @@ function LovinityPage() {
           </section>
         </main>
 
-        <footer className="mt-8 text-center text-sm text-white/80">
+        <footer className="mt-8 text-center text-sm text-pink-100/70">
           © {year} Lovinity. Built with 💖 by XzeelArcadia
         </footer>
       </div>

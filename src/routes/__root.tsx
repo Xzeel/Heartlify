@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovinity — Buktikan Kecocokan Cinta Kalian" },
+      { title: "Heartlify — Buktikan Kecocokan Cinta Kalian" },
       { name: "description", content: "Kalkulator cinta untuk membuktikan kecocokan dua nama dengan persentase fun dan realistis." },
       { name: "author", content: "XzeelArcadia" },
-      { property: "og:title", content: "Lovinity — Buktikan Kecocokan Cinta Kalian" },
+      { property: "og:title", content: "Heartlify — Buktikan Kecocokan Cinta Kalian" },
       { property: "og:description", content: "Kalkulator cinta untuk membuktikan kecocokan dua nama dengan persentase fun dan realistis." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@xzeelarcadia" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

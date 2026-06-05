@@ -56,7 +56,7 @@ function LovinityPage() {
       <div className="relative flex min-h-screen flex-col items-center justify-between px-4 py-12 font-lexend">
         <header className="mt-6 text-center animate-fade-in-up">
           <h1 className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl">
-            Lovinity
+            Heartlify
           </h1>
           <p className="mt-3 text-xl font-light text-rose-900/80">
             Buktikan Kecocokan Cinta Kalian
@@ -80,7 +80,7 @@ function LovinityPage() {
                 <input
                   value={name1}
                   onChange={(e) => setName1(e.target.value)}
-                  placeholder="cth. Aurora"
+                  placeholder="ex. Amane"
                   className="w-full rounded-2xl border border-pink-200 bg-white/70 px-4 py-3 text-rose-900 placeholder:italic placeholder:text-pink-300 transition focus:border-pink-400 focus:outline-none focus:ring-4 focus:ring-pink-400/40"
                 />
               </div>
@@ -91,7 +91,7 @@ function LovinityPage() {
                 <input
                   value={name2}
                   onChange={(e) => setName2(e.target.value)}
-                  placeholder="cth. Reyhan"
+                  placeholder="ex. Mahiru"
                   className="w-full rounded-2xl border border-pink-200 bg-white/70 px-4 py-3 text-rose-900 placeholder:italic placeholder:text-pink-300 transition focus:border-pink-400 focus:outline-none focus:ring-4 focus:ring-pink-400/40"
                 />
               </div>
@@ -111,7 +111,7 @@ function LovinityPage() {
         </main>
 
         <footer className="mt-8 text-center text-sm text-rose-900/60">
-          © {year} Lovinity. Built with 💖 by XzeelArcadia
+          © {year} Heartlify. Built with 💖 by XzeelArcadia
         </footer>
       </div>
     </>

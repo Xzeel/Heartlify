@@ -75,7 +75,7 @@ function LovinityPage() {
             <form onSubmit={onSubmit} className="mt-6 space-y-4">
               <div>
                 <label className="mb-1.5 block text-sm font-medium text-rose-900">
-                  Nama Anda
+                  Nama Kamu
                 </label>
                 <input
                   value={name1}
